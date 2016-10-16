@@ -3,13 +3,13 @@
   <search></search>
 </div>
 
-<div class="profile page-content" padding>
+<div class="profile page-content" padding *ngIf="userProfile">
   <div class="card">
     <div class="cover card-content">
       <div class="avatar">
         <img [src]="avatarUrl()" *ngIf="userProfile.avatar.url"/>
       </div>
-      <div class="edit-action">
+      <div class="edit-action" *ngIf="isCurrentUserProfile">
         <button ion-fab fab-right fab-top class="edit" *ngIf="!editMode" (click)="editMode=true;">
           Edit
         </button>
@@ -31,4 +31,10 @@
       <h5>{{userProfile.mobile_number}}</h5>
     </div>
   </div>
+
+  <div class="card">
+    <textarea [(ngModel)]="post.content" placeholder="Post on {{isCurrentUserProfile ? 'your' : userProfile.name + '\'s'}} profile"></textarea>
+    <button class="bg-teal" (click)="postOnProfile()" [disabled]="!post.content">Post</button>
+  </div>
+
 </div>

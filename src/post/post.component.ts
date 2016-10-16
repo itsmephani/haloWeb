@@ -1,3 +1,4 @@
+import {App} from '../app/app.component';
 import {APP_CONSTANTS} from '../constants/app-constants';
 import {Http} from '@angular/http';
 import {IPost} from '../models/ipost';
@@ -34,7 +35,7 @@ export class Post {
 
   getPosts() {
     this.loading = true;
-    this.restService.all('posts', {}, {}).
+    this.restService.all('posts?scope=all_posts', {}, {}).
       subscribe(response => {
         this.loading = false;
         this.posts = response.json()['data'];
@@ -44,7 +45,6 @@ export class Post {
   addPost() {
     this.restService.create('posts', {post: this.post}, {})
       .subscribe(response => {
-        console.log(response);
         this.posts.push(response.json()['data']);
         this.initPost();
       });
@@ -62,10 +62,24 @@ export class Post {
 
   }
 
+  getPostName(post): string {
+    let name = post.user['name'];
+    if (post.poster_id) {
+      if (post.poster_id == App.currentUser['id']) {
+        name = 'You posted on ' + post.user['name'] + '\'s profile';
+      } else if (post.poster_id != App.currentUser['id']) {
+        name = post.user['name'] + ' posted on your profile';
+      }
+    }
+    return name;
+  }
+
   avatarUrl(post): string|null|undefined {
-    let url = post.user.avatar.avatar.url;
+    let url = (post.poster && post.poster.avatar && post.poster.avatar.avatar) ? post.poster.avatar.avatar.url :
+        post.user.avatar.avatar.url;
+        console.log(url);
     if (url && url.indexOf('http') == -1) {
-      url = APP_CONSTANTS['HOST_URL'] + url;;
+      url = APP_CONSTANTS['HOST_URL'] + url;
     }
     return url;
   }

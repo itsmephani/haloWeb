@@ -1,7 +1,10 @@
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+
 import {APP_CONSTANTS} from '../constants/app-constants';
 import {App} from '../app/app.component';
-import {Component} from '@angular/core';
 import {IUser} from '../models/iuser';
+import {IPost} from '../models/ipost';
 import {RestService} from '../services/rest-service';
 
 
@@ -11,11 +14,32 @@ import {RestService} from '../services/rest-service';
   providers: [RestService]
 })
 export class Profile {
+  id: string;
   userProfile: IUser|void;
   editMode: boolean = false;
+  post: IPost;
+  isCurrentUserProfile: boolean = false;
+  private sub: any;
 
-  constructor(private restService: RestService) {
-    this.userProfile = App.currentUser;
+  constructor(private route: ActivatedRoute, private restService: RestService,
+      private router: Router) {
+    this.post = {content: ''};
+  }
+
+  ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+       this.id = params['id'];
+       if (this.id && (this.id != App.currentUser['id'])) {
+        this.isCurrentUserProfile = false;
+        this.restService.get('users/' + this.id, {}, {}).
+          subscribe(response => {
+            this.userProfile = response.json()['data'];
+          });
+       } else {
+          this.userProfile = App.currentUser;
+          this.isCurrentUserProfile = true;
+       }
+    });
   }
   
   updateProfile() {
@@ -52,6 +76,22 @@ export class Profile {
       url = APP_CONSTANTS['HOST_URL'] + url;
     }
     return url;
+  }
+
+  postOnProfile() {
+    if (!this.isCurrentUserProfile) {
+      this.post['poster_id'] = App.currentUser['id'];
+    }
+    this.post['user_id'] = this.userProfile['id'];
+    this.restService.create('posts', {post: this.post}, {}).
+      subscribe(response => {
+        this.post = {content: ''};
+        alert('Posted succesfully, please check in the feed');
+      });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }

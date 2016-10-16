@@ -25,10 +25,11 @@
 
       <div>
         <div class="avatar" item-left>
-          <img class="avatar-sm" 
-               [src]="avatarUrl(post)"
-               *ngIf="post.user?.avatar?.avatar?.url">
-          <small class="name">{{post.user ? post.user.name : ''}}</small>
+          <div class="avatar-sm image" 
+               [style.background-image]="'url(' + avatarUrl(post) + ')'"></div>
+          <a routerLink="/users/{{post.poster_id ? post.poster_id : post.user_id}}">
+            <small class="name">{{getPostName(post)}}</small>
+          </a>
         </div>        
         <p>{{post.date}}</p>
       </div>

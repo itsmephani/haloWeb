@@ -40,6 +40,14 @@ export class RestService {
     return this.http.
       get(APP_CONSTANTS['BASE_URL'] + url + params, this.options);
   }
+
+
+  /**
+   * Lists all resources.
+   */
+  get(url: string = this.url, requestParams: Object, headers: Object) : Observable<Response> {
+    return this.all(url, requestParams, headers);
+  }
   
   
   /**
