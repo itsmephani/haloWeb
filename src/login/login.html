@@ -1,0 +1,78 @@
+<div class="login-wrapper">
+  <!-- actions -->
+  <div class="actions">
+    <button class="action login-action animated fadeInUp animation-delay" *ngIf="userAction=='login'" (click)="userAction='signup'">
+      <i class="person-add"></i>
+    </button>
+    <button ion-fab secondary *ngIf="userAction=='signup'"
+      class="action signup-action animated bounceIn animation-delay" 
+      (click)="userAction='login'" [class.active]="userAction=='signup'">
+      <i class="close"></i>
+    </button>
+  </div>
+
+  <!-- login -->
+  <div class="login animated fadeInDown" *ngIf='userAction == "login"'>
+    <div class="card">
+      <div class="header">
+        Login
+      </div>
+      <div>
+        <label floating>Username</label>
+        <input [(ngModel)]='user.name' primary />
+      </div>
+
+      <div>
+        <label floating>Password</label>
+        <input type="password" [(ngModel)]='user.password' />
+      </div>
+
+      <div class="text-center">
+        <button ion-button outline (click)='login()'>
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- registration -->
+  <div class="signup animated flipInY" *ngIf='userAction == "signup"'>
+    <div class="back-card"></div>
+    <div class="card">
+      <div class="header">
+        Sign Up
+      </div>
+      <div>
+        <label floating>Username</label>
+        <input [(ngModel)]='user.name' />
+      </div>
+
+      <div>
+        <label floating>Email</label>
+        <input type="email" [(ngModel)]='user.email' />
+      </div>
+
+      <div>
+        <label floating>Mobile</label>
+        <input type="tel" [(ngModel)]='user.mobile_number' />
+      </div>
+
+      <div>
+        <label floating>Password</label>
+        <input type="password" [(ngModel)]='user.password' />
+      </div> 
+
+      <div>
+        <label floating>Confirm</label>
+        <input type="password" [(ngModel)]='user.password_confirmation' />
+      </div>
+      
+
+      <div class="text-center">
+        <button ion-button class='secondary' outline (click)='signUp()'>
+          SignUp
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>

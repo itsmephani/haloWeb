@@ -3,11 +3,23 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { App } from './app.component';
+import { Chat } from '../chat/chat.component';
+import { Login } from '../login/login.component';
+import { Post } from '../post/post.component';
+import { Profile } from '../profile/profile.component';
+import { Search } from '../search/search.component';
+import { Tabs } from '../tabs/tabs.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    App,
+    Chat,
+    Login,
+    Post,
+    Profile,
+    Search,
+    Tabs
   ],
   imports: [
     BrowserModule,
@@ -15,6 +27,6 @@ import { AppComponent } from './app.component';
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [App]
 })
 export class AppModule { }

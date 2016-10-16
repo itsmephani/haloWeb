@@ -1,0 +1,11 @@
+.app-loading {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4184f5;
+  background: whitesmoke;
+}

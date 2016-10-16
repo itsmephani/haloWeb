@@ -1,0 +1,14 @@
+<section class="search">
+  <input id="search"
+         type="search"
+         placeholder="Search for an user"
+         [(ngModel)]="keyword"
+         (change)="searchUser()" />
+  <div class="results list">
+    <div class="list-item"
+         *ngFor="let user of results">
+      {{user?.name}}
+      <button (click)="addFriend(user)">Add as friend</button>
+    </div>
+  </div>
+</section>

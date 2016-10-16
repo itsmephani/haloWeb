@@ -1,3 +1,4 @@
-<h1>
-  {{title}}
-</h1>
+<section class="app">
+  <login *ngIf="!currentUser"></login>
+  <tabs *ngIf="currentUser"></tabs>
+</section>

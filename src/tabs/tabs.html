@@ -1,0 +1,18 @@
+<section class="tabs">
+
+    <div class="tabs-content">
+      <post *ngIf="isActiveTab('post')"></post>
+      <profile *ngIf="isActiveTab('profile')"></profile>
+      <chat *ngIf="isActiveTab('chat')"></chat>
+    </div>
+
+    <div class="tabs-footer">
+      <a class="tab column"
+         [ngClass]="{'active': isActiveTab(tab.selector)}"
+         *ngFor="let tab of tabs"
+         (click)="setActiveTab(tab.selector)">
+          {{tab.title}}
+      </a>
+    </div>
+  
+</section>

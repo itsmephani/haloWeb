@@ -1,0 +1,35 @@
+.posts-wrapper #add-post {
+  position: absolute;
+  z-index: 1;
+  bottom: 60px;
+  right: 15px;
+  color: white;
+  height: 50px;
+  width: 50px;
+  background: #4184f5;
+  border-radius: 50%;
+}
+
+.posts-wrapper #add-post:after {
+  content: '+';
+  height: 100%;
+  width: 100%;
+  font-size: 30px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  top: 5px;
+  position: relative;
+  cursor: pointer;
+  font-family: serif;
+}
+
+.posts-wrapper .avatar .name {
+  position: relative;
+  bottom: 5px;
+  color: #4184f5;
+}
+
+.posts-wrapper p {
+  font-size: 14px;
+}

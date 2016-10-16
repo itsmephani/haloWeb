@@ -1,0 +1,13 @@
+input#search {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50%;
+  height: 25px;
+  outline: none;
+  border: none;
+}
+
+input#search:focus {
+  border-bottom: 1px solid #4184f5;
+}

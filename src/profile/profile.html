@@ -1,0 +1,34 @@
+<div class="navbar">
+  <div class="header">Profile</div>
+  <search></search>
+</div>
+
+<div class="profile page-content" padding>
+  <div class="card">
+    <div class="cover card-content">
+      <div class="avatar">
+        <img [src]="avatarUrl()" *ngIf="userProfile.avatar.url"/>
+      </div>
+      <div class="edit-action">
+        <button ion-fab fab-right fab-top class="edit" *ngIf="!editMode" (click)="editMode=true;">
+          Edit
+        </button>
+        <button ion-fab fab-right fab-top class="edit" *ngIf="editMode" (click)="updateProfile()">
+          Save
+        </button>
+      </div>
+    </div>
+    
+    <div class="field">
+      <input type="text" [(ngModel)]='userProfile.name' [disabled]="!editMode" />
+    </div>
+
+    <div *ngIf="editMode" class="field">
+      <input id="avatar" type="file" />
+    </div>
+
+    <div>
+      <h5>{{userProfile.mobile_number}}</h5>
+    </div>
+  </div>
+</div>

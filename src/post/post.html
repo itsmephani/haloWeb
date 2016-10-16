@@ -1,0 +1,60 @@
+<div class="navbar">
+  <div class="header">Feed</div>
+  <search></search>
+</div>
+
+<div padding class="posts-wrapper page-content">
+  <i class="add" title="Got something to say?" id="add-post" (click)="toggleAddNewPost()"></i>
+  <div id="new-post" *ngIf="addNewPost">
+    <div>
+      <textarea [(ngModel)]='post.content' placeholder="Hey! whats your story?"></textarea>
+    </div>
+    <button  (click)='addPost()' small class="right bg-blue">Add</button>
+    <button  (click)='toggleAddNewPost()' small outline class="right bg-danger">
+      Cancel
+    </button>
+  </div>
+
+  <div class="posts">
+    <div *ngIf="!loading && !posts.length" class="text-center">
+      <button *ngIf="!addNewPost" (click)='initPost(); toggleAddNewPost();' small>
+        Add a Post
+      </button>
+    </div>
+    <div class="card" *ngFor="let post of posts">
+
+      <div>
+        <div class="avatar" item-left>
+          <img class="avatar-sm" 
+               [src]="avatarUrl(post)"
+               *ngIf="post.user?.avatar?.avatar?.url">
+          <small class="name">{{post.user ? post.user.name : ''}}</small>
+        </div>        
+        <p>{{post.date}}</p>
+      </div>
+
+      <div class="card-content">
+        <p>{{post.content}}</p>
+      </div>
+
+      <!--<div>
+        <button  class="primary clear" item-left (click)="like(post)">
+          <i name="thumbs-up"></i>
+          <div>{{post.likes.length}} Likes</div>
+        </button>
+        <button  class="primary clear" item-left (click)="post.addComment = true">
+          <i name="text"></i>
+          <div>4 Comments</div>
+        </button>
+        <span item-right>
+          11h ago
+        </span>
+      </div>-->
+
+       <div *ngIf="post.addComment">
+         <textarea [(ngModel)]='post.comment.comment' placeholder="Comment"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+

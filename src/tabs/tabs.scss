@@ -1,0 +1,22 @@
+ .tabs-footer {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  background: whitesmoke;
+  color: gray;
+ }
+
+ .tabs-footer .tab {
+    padding: 15px;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    color: #4184f5;
+  }
+
+.tabs-footer .tab.active {
+  color: white;
+  background: #4184f5;
+}
