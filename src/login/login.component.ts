@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
 import {IUser} from '../models/iuser';
 import {App} from '../app/app.component';
 import {Tabs} from '../tabs/tabs.component';
@@ -16,7 +18,7 @@ export class Login implements OnInit{
   private myApp: any = App;
   private nav: any;
   
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router: Router) {
     this.initUser();
   }
   
@@ -51,5 +53,9 @@ export class Login implements OnInit{
 
   error(errorSummary) {
     let errors = errorSummary.json().errors;
+  }
+
+  navigateToFeed() {
+    this.router.navigate(['/feed']);
   }
 }

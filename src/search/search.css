@@ -11,3 +11,33 @@ input#search {
 input#search:focus {
   border-bottom: 1px solid #4184f5;
 }
+
+.search .results {
+  height: 400px;
+  position: absolute;
+  width: 100%;
+  background: whitesmoke;
+}
+
+.search .results .result {
+  padding: 5px 15px;
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search .results .result .name {
+  position: relative;
+  bottom: 4px;
+}
+
+.search .results .close {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  margin-bottom: 4px;
+  padding-right: 15px;
+}

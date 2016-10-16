@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule }   from '@angular/router';
 
 import { App } from './app.component';
 import { Chat } from '../chat/chat.component';
@@ -24,7 +25,16 @@ import { Tabs } from '../tabs/tabs.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      { path: '',  component: App },
+      { path: 'chat', component: Chat},
+      { path: 'login', component: Login},
+      { path: 'feed', component: Post},
+      { path: 'chat', component: Chat},
+      { path: 'users/:id', component: Profile },
+      { path: 'profile', component: Profile }    
+    ])
   ],
   providers: [],
   bootstrap: [App]

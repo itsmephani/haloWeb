@@ -1,16 +1,10 @@
 <section class="tabs">
 
-    <div class="tabs-content">
-      <post *ngIf="isActiveTab('post')"></post>
-      <profile *ngIf="isActiveTab('profile')"></profile>
-      <chat *ngIf="isActiveTab('chat')"></chat>
-    </div>
-
     <div class="tabs-footer">
       <a class="tab column"
-         [ngClass]="{'active': isActiveTab(tab.selector)}"
+         [ngClass]="{'active': isActiveTab(tab.path)}"
          *ngFor="let tab of tabs"
-         (click)="setActiveTab(tab.selector)">
+         routerLink="/{{tab.path}}">
           {{tab.title}}
       </a>
     </div>

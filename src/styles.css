@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'app.css';
 @import 'app/app.component.css';
+@import 'login/login.scss';
 @import 'profile/profile.scss';
 @import 'post/post.scss';
 @import 'search/search.css';

@@ -3,12 +3,18 @@
          type="search"
          placeholder="Search for an user"
          [(ngModel)]="keyword"
-         (change)="searchUser()" />
-  <div class="results list">
-    <div class="list-item"
+         (ngModelChange)="searchUser()" />
+
+  <div class="results list" *ngIf="showResults">
+    <div class="close"><small class="text-danger" (click)="showResults=false">close</small></div>
+    <div class="list-item result"
          *ngFor="let user of results">
-      {{user?.name}}
-      <button (click)="addFriend(user)">Add as friend</button>
+      <div>
+        <img [src]="avatarUrl(user)" *ngIf="avatarUrl(user)" class="avatar-sm">
+        <span class="name">{{user.name}}</span>
+      </div>
+      <button class="bg-blue btn-sm right" *ngIf="!user.is_friend && currentUser.id != user.id" (click)="addFriend(user)">Add as friend</button>
+      <small class="text-teal right" *ngIf="user.is_friend">Friend</small>
     </div>
   </div>
 </section>

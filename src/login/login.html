@@ -1,13 +1,13 @@
 <div class="login-wrapper">
   <!-- actions -->
   <div class="actions">
-    <button class="action login-action animated fadeInUp animation-delay" *ngIf="userAction=='login'" (click)="userAction='signup'">
-      <i class="person-add"></i>
+    <button class="action bg-blue login-action animated fadeInUp animation-delay" *ngIf="userAction=='login'" (click)="userAction='signup'">
+      <i class="">SignUp</i>
     </button>
-    <button ion-fab secondary *ngIf="userAction=='signup'"
-      class="action signup-action animated bounceIn animation-delay" 
+    <button *ngIf="userAction=='signup'"
+      class="action bg-danger signup-action animated bounceIn animation-delay" 
       (click)="userAction='login'" [class.active]="userAction=='signup'">
-      <i class="close"></i>
+      <i class="close">&times;</i>
     </button>
   </div>
 
@@ -19,7 +19,7 @@
       </div>
       <div>
         <label floating>Username</label>
-        <input [(ngModel)]='user.name' primary />
+        <input type="text" [(ngModel)]='user.name' primary />
       </div>
 
       <div>
@@ -28,7 +28,7 @@
       </div>
 
       <div class="text-center">
-        <button ion-button outline (click)='login()'>
+        <button class="bg-blue" (click)='login()'>
           Login
         </button>
       </div>
@@ -37,14 +37,14 @@
 
   <!-- registration -->
   <div class="signup animated flipInY" *ngIf='userAction == "signup"'>
-    <div class="back-card"></div>
+    <!--<div class="card back-card"></div>-->
     <div class="card">
       <div class="header">
         Sign Up
       </div>
       <div>
         <label floating>Username</label>
-        <input [(ngModel)]='user.name' />
+        <input type="text" [(ngModel)]='user.name' />
       </div>
 
       <div>
@@ -69,7 +69,7 @@
       
 
       <div class="text-center">
-        <button ion-button class='secondary' outline (click)='signUp()'>
+        <button class='bg-teal' outline (click)='signUp()'>
           SignUp
         </button>
       </div>
