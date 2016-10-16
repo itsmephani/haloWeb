@@ -20,9 +20,6 @@ export class Tabs {
   ];
 
   constructor(router: Router) {
-    const state: RouterState = router.routerState;
-    const root: ActivatedRoute = state.root;
-    console.log(router.url);
   }
 
   isActiveTab(path): boolean {

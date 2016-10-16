@@ -44,7 +44,7 @@ export class Search {
     if(user.id !== this.currentUser['id']) {
       this.restService.create('friendships', {friend_id: user.id}, {}).
         subscribe(response => {
-          console.log(response);
+          user['is_friend'] = true;
         });
     }
   }
