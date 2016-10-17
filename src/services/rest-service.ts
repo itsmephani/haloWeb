@@ -33,7 +33,7 @@ export class RestService {
   /**
    * Lists all resources.
    */
-  all(url: string = this.url, requestParams: Object, headers: Object) : Observable<Response> {
+  all(url: string = this.url, requestParams: Object, headers?: Object) : Observable<Response> {
     let hasParams = Object.keys(requestParams).length;
     let params = hasParams ?
         ('?' + encodeURIComponent(JSON.stringify(requestParams))) : '';  
@@ -45,7 +45,7 @@ export class RestService {
   /**
    * Lists all resources.
    */
-  get(url: string = this.url, requestParams: Object, headers: Object) : Observable<Response> {
+  get(url: string = this.url, requestParams: Object, headers?: Object) : Observable<Response> {
     return this.all(url, requestParams, headers);
   }
   
@@ -53,7 +53,7 @@ export class RestService {
   /**
    * Creates a resource.
    */
-  create(url: string = this.url, requestParams: Object, headers: Object) : Observable<Response> {
+  create(url: string = this.url, requestParams: Object, headers?: Object) : Observable<Response> {
     let params = JSON.stringify(requestParams);
     return this.http.
       post(APP_CONSTANTS['BASE_URL'] + url, params, this.options);

@@ -1,0 +1,20 @@
+<div class="navbar">
+  <div class="header">Messages</div>
+  <search></search>
+</div>
+<section class="messages">
+  <div class="list" *ngIf="messages">
+    <div class="list-item message" *ngFor="let message of messages">
+      <div class="message-content">{{message.message}}</div>
+      <div class="info text-blue">
+        <small *ngIf="currentUser.id != message.user_id">{{message.user_name}}, messaged on</small>
+        <small *ngIf="currentUser.id == message.user_id">you, messaged on</small>
+        <small>{{message.created_at | date: "dd/MM/yy 'at' HH:mm"}}</small>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="chat-form">
+  <input type="text" [(ngModel)]="message.message" [ngModelOptions]="{standalone: true}" placeholder="Type to send.." />
+  <button class="bg-blue" (click)="sendMessage()">Send</button>
+</div>

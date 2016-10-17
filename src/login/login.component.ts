@@ -40,6 +40,7 @@ export class Login implements OnInit{
       subscribe(response => {
         this.setCurrentUser(response.json()['data']);
         this.initUser();
+        this.navigateToFeed();
       }, (error) => this.error(error));
   }
   
@@ -48,6 +49,7 @@ export class Login implements OnInit{
       subscribe(response => {
         this.setCurrentUser(response.json()['data']);
         this.initUser();
+        this.navigateToFeed();
       });
   }
 

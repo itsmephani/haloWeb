@@ -1,1 +1,17 @@
-<section class="chat"></section>
+<div class="navbar">
+  <div class="header">Chat</div>
+  <search></search>
+</div>
+<div padding>
+  Friends
+</div>
+<section class="chat page-content">
+  <div class="list" *ngIf="friendships">
+    <div class="list-item" *ngFor="let friendship of friendships">
+      <div>{{friendship.user_id == currentUser.id ? friendship.friend.name : friendship.user.name}}</div>
+      <div>
+        <button class="bg-danger" (click)="createChatRoom(friendship)">Chat</button>
+      </div>
+    </div>
+  </div>
+</section>

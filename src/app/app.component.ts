@@ -28,7 +28,8 @@ export class App implements OnInit {
     if (!App.currentUser && !window['location']['pathname'].includes('login')) {
       //this.router.navigateByUrl('/feed');
       window.location.assign('/login');
-    } else if (App.currentUser && window['location']['pathname'].includes('login')) {
+    } else if (App.currentUser && 
+        (window['location']['pathname'].includes('login') || window['location']['pathname'] == '/')) {
       //this.router.navigateByUrl('/login');
       window.location.assign('/feed');
     }

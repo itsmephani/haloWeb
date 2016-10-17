@@ -11,7 +11,9 @@
          *ngFor="let user of results">
       <div>
         <img [src]="avatarUrl(user)" *ngIf="avatarUrl(user)" class="avatar-sm">
-        <span class="name">{{user.name}}</span>
+        <a routerLink="/users/{{user.id}}">
+          <span class="name">{{user.name}}</span>
+        </a>
       </div>
       <button class="bg-blue btn-sm right" *ngIf="!user.is_friend && currentUser.id != user.id" (click)="addFriend(user)">Add as friend</button>
       <small class="text-teal right" *ngIf="user.is_friend">Friend</small>

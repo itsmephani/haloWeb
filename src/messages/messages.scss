@@ -1,0 +1,30 @@
+.messages {
+  margin-top: 50px;
+}
+
+.messages .message .message-content {
+  color: #777;
+}
+
+.messages .message .info {
+  font-size: 14px;
+}
+
+.chat-form {
+  position: fixed;
+  bottom: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+  right: 0;
+  left: 0;
+  background: whitesmoke;
+}
+
+.chat-form input {
+  height: 25px;
+  margin-right: 15px;
+  position: relative;
+  top: 2px;
+}
