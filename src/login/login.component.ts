@@ -55,6 +55,7 @@ export class Login implements OnInit{
 
   error(errorSummary) {
     let errors = errorSummary.json().errors;
+    alert('There is some problem, please try again with correct credentials' + errors);
   }
 
   navigateToFeed() {

@@ -14,7 +14,8 @@ import { Tabs } from '../tabs/tabs.component';
 export class App implements OnInit {
   static currentUser: IUser|void =
     localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : undefined;
-
+  isUserLoggedIn: boolean = false;
+  
   /**
    * If user loggedIn take him to posts page, 
    * else show login page.
@@ -22,6 +23,7 @@ export class App implements OnInit {
   currentUser: IUser|void = App.currentUser;
 
   constructor(private router: Router) {
+    this.isUserLoggedIn = !!App.currentUser;
   }
 
   ngOnInit() {
@@ -34,4 +36,11 @@ export class App implements OnInit {
       window.location.assign('/feed');
     }
   }
+
+  logout() {
+    App.currentUser = undefined;
+    localStorage.removeItem('currentUser');
+    window.location.assign('/login');
+  }
+
 }

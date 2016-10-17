@@ -28,7 +28,7 @@
       </div>
 
       <div class="text-center">
-        <button class="bg-blue" (click)='login()'>
+        <button class="bg-blue" (click)='login()' [disabled]="!user.name && !user.password">
           Login
         </button>
       </div>
@@ -69,7 +69,7 @@
       
 
       <div class="text-center">
-        <button class='bg-teal' outline (click)='signUp()'>
+        <button class='bg-teal' outline (click)='signUp()' [disabled]="!user.name && !user.password && !user.email">
           SignUp
         </button>
       </div>
