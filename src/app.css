@@ -50,6 +50,7 @@ body {
   padding: 15px;
   box-shadow: 0px 1px 1px 1px #e0e0e0;
   margin: 15px 0;
+  border-radius: 2px;
 }
 
 .column {
@@ -66,6 +67,12 @@ h5 {
 
 .flex {
   display: flex;
+}
+
+.header {
+  font-size: 20px;
+  color: #777;
+  margin-bottom: 15px;
 }
 
 .list .list-item {

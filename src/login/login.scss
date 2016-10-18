@@ -8,7 +8,7 @@
   position: absolute;
 }
 .actions {
-  width: 80%;
+  width: 60%;
   z-index: 1;
   position: relative;
   margin-left: auto;
@@ -20,12 +20,11 @@
 }
 i{
   cursor: pointer;
-  font-size: 2.5em;
 }
 .back-card {
   height: 8px;
   margin-bottom: 0;
-  width: 75%;
+  width: 55%;
 }
 .login input:focus {
   border-bottom: 1px solid #387ef5 !important;
@@ -34,7 +33,7 @@ i{
   border-bottom: 1px solid #32db64 !important;
 }
 .login-wrapper .card {
-  width: 80%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid #FFF;
@@ -44,6 +43,13 @@ i{
   padding: 0 2.5em;
   height: 34px;
 }
+.login-wrapper label {
+  margin: 5px 0;
+  display: block;
+}
 .login-wrapper input {
-  margin: 10px 0;
+  margin-bottom: 15px;
+  height: 30px;
+  font-size: 14px;
+  padding: 0 5px;
 }
